@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast Notification</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" 
+    href="https://fontawesome.com/icons/check?f=classic&s=regular">
+</head>
+<body>
+    <div class="container">
+     <button id="success" onclick="showToast(successmsg)"> Success</button>
+    <button id="invalid" onclick="showToast(inmsg)"> Invalid</button>
+    <button id="err-btn" onclick="showToast(errmsg)">Error</button>
+    </div>
+    <div id="toastbox">
+
+    </div>
+    <script>
+        const toastbox=document.getElementById("toastbox");
+let successmsg='<i class="fa-regular fa-check"></i> Completed Successfully.';
+let errmsg='<i class=" fa-xmark"></i> An Error Acurred !';
+let inmsg='<i class=" fa-bug"></i> Invalid Inputs !';
+
+
+function showToast(msg){
+    
+   let toast= document.createElement("div");
+   toast.classList.add('toast');
+   toast.innerHTML=msg;
+   toastbox.appendChild(toast)
+
+   setTimeout(()=>{
+      toast.remove()
+   },6000)
+}
+    </script>
+</body>
+</html>
